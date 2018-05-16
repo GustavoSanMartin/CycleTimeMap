@@ -5,10 +5,10 @@
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
         <style>
-            #map {  height: 100%;  }
+            #map {  height: 80%;  }
             /* Optional: Makes the sample page fill the window. */
             html, body {
-                height: 100%;
+                height: 80%;
                 margin: 0%;
                 padding: 0%;
             }
@@ -16,15 +16,25 @@
     </head>
 
     <body>
+
+        <p>Select a destination by clicking on the map</p>
+        <form method="post">
+            <input type="text" id="lat" readonly="yes"><br>
+            <input type="text" id="lng" readonly="yes">
+            <select id = "travelMode">
+                <option value="DRIVING">Driving</option>
+                <option value="BICYCLING">Bicycling</option>
+                <option value="TRANSIT">Transit</option>
+                <option value="WALKING">Walking</option>
+            </select>
+        </form>
+        <button title="Calculate" onclick="calcRoute()">Calculate</button>
+
         <div id="map"></div>
-        <script>
-            var map;
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 45.4085, lng: -75.700},
-                    zoom: 13
-                });
-            }
+
+
+        <script src = "Main.js">
+            
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfuz4kkw0afqV8i-vv7ZnpufI2sCdaE3c&callback=initMap"
                 async defer></script>
